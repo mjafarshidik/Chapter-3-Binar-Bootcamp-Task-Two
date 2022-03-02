@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Calculator App</string>
+    <string name="logo_app">Logo App</string>
+    <string name="start_calculate">Mulai Hitung!</string>
+    <string name="this_is_calculation_activity">This is Calculation Activity</string>
+    <string name="clear">C</string>
+</resources>
