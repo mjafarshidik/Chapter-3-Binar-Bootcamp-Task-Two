@@ -127,10 +127,8 @@ class CalculationActivity : AppCompatActivity() {
                 list.add(character)
             }
         }
-
         if (currentDigit != "")
             list.add(currentDigit.toFloat())
-
         return list
     }
 }
