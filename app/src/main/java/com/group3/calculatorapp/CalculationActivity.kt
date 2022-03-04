@@ -86,6 +86,7 @@ class CalculationActivity : AppCompatActivity() {
 
     private fun calcTimesDiv() {
         //dikerjakan di branch feature/calc_times_div
+        //ok coba pull request
         fun calcTimesDiv(passedList: MutableList<Any>): MutableList<Any> {
             val newList = mutableListOf<Any>()
             var restartIndex = passedList.size
