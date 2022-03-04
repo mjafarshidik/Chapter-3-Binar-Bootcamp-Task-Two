@@ -63,9 +63,20 @@ class CalculationActivity : AppCompatActivity() {
         return result.toString()
     }
 
-    private fun addSubtractCalculate() {
+    private fun addSubtractCalculate(passedList: MutableList<Any>): Float {
         //dikerjakan di branch feature/add_subtract_calculate
-
+        var result = passedList[0] as Float
+        for (i in passedList.indices) {
+            if (passedList[i] is Char && i != passedList.lastIndex) {
+                val operator = passedList[i]
+                val nextDigit = passedList[i + 1] as Float
+                if (operator == '+')
+                    result += nextDigit
+                if (operator == '-')
+                    result -= nextDigit
+            }
+        }
+        return result
     }
 
     private fun timesDivisionCalculate() {
