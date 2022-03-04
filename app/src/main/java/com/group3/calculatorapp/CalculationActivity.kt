@@ -103,8 +103,23 @@ class CalculationActivity : AppCompatActivity() {
         return newList
     }
 
-    private fun digitsOperators() {
+    private fun digitsOperators(): MutableList<Any> {
         //dikerjakan di branch feature/digits_operators
+        val list = mutableListOf<Any>()
+        var currentDigit = ""
+        for (character in workingsTV.text) {
+            if (character.isDigit() || character == '.')
+                currentDigit += character
+            else {
+                list.add(currentDigit.toFloat())
+                currentDigit = ""
+                list.add(character)
+            }
+        }
 
+        if (currentDigit != "")
+            list.add(currentDigit.toFloat())
+
+        return list
     }
 }
