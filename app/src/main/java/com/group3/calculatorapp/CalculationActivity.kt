@@ -79,8 +79,13 @@ class CalculationActivity : AppCompatActivity() {
         return result
     }
 
-    private fun timesDivisionCalculate() {
-        //dikerjakan di branch feature/times_division_calculate
+
+    private fun timesDivisionCalculate(passedList: MutableList<Any>): MutableList<Any> {
+        var list = passedList
+        while (list.contains('x') || list.contains('/')) {
+            list = calcTimesDiv(list)
+        }
+        return list
 
     }
 
