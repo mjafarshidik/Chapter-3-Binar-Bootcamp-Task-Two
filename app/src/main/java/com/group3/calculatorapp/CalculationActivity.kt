@@ -57,35 +57,21 @@ class CalculationActivity : AppCompatActivity() {
     }
 
     private fun calculateResults(): String {
-        //dikerjakan di branch feature/calculate_results
-
-        val result = "result"
+        val digitsOperators = digitsOperators()
+        if (digitsOperators.isEmpty()) return ""
+        val timesDivision = timesDivisionCalculate(digitsOperators)
+        if (timesDivision.isEmpty()) return ""
+        val result = addSubtractCalculate(timesDivision)
         return result.toString()
     }
 
-    private fun addSubtractCalculate(passedList: MutableList<Any>): Float {
+    private fun addSubtractCalculate() {
         //dikerjakan di branch feature/add_subtract_calculate
-        var result = passedList[0] as Float
-        for (i in passedList.indices) {
-            if (passedList[i] is Char && i != passedList.lastIndex) {
-                val operator = passedList[i]
-                val nextDigit = passedList[i + 1] as Float
-                if (operator == '+')
-                    result += nextDigit
-                if (operator == '-')
-                    result -= nextDigit
-            }
-        }
-        return result
+
     }
 
-
-    private fun timesDivisionCalculate(passedList: MutableList<Any>): MutableList<Any> {
-        var list = passedList
-        while (list.contains('x') || list.contains('/')) {
-            list = calcTimesDiv(list)
-        }
-        return list
+    private fun timesDivisionCalculate() {
+        //dikerjakan di branch feature/times_division_calculate
 
     }
 
