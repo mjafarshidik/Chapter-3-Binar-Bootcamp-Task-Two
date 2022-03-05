@@ -65,18 +65,31 @@ class CalculationActivity : AppCompatActivity() {
         return result.toString()
     }
 
-    private fun addSubtractCalculate() {
-        //dikerjakan di branch feature/add_subtract_calculate
-
+    private fun addSubtractCalculate(passedList: MutableList<Any>): Float {
+        var result = passedList[0] as Float
+        for (i in passedList.indices) {
+            if (passedList[i] is Char && i != passedList.lastIndex) {
+                val operator = passedList[i]
+                val nextDigit = passedList[i + 1] as Float
+                if (operator == '+')
+                    result += nextDigit
+                if (operator == '-')
+                    result -= nextDigit
+            }
+        }
+        return result
     }
 
-    private fun timesDivisionCalculate() {
-        //dikerjakan di branch feature/times_division_calculate
-
+    private fun timesDivisionCalculate(passedList: MutableList<Any>): MutableList<Any> {
+        var list = passedList
+        while (list.contains('x') || list.contains('/')) {
+            list = calcTimesDiv(list)
+        }
+        return list
     }
+
 
     private fun calcTimesDiv(passedList: MutableList<Any>): MutableList<Any> {
-        //dikerjakan di branch feature/calc_times_div
         val newList = mutableListOf<Any>()
         var restartIndex = passedList.size
         for (i in passedList.indices) {
@@ -106,7 +119,6 @@ class CalculationActivity : AppCompatActivity() {
     }
 
     private fun digitsOperators(): MutableList<Any> {
-        //dikerjakan di branch feature/digits_operators
         val list = mutableListOf<Any>()
         var currentDigit = ""
         for (character in workingsTV.text) {
