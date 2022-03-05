@@ -57,9 +57,11 @@ class CalculationActivity : AppCompatActivity() {
     }
 
     private fun calculateResults(): String {
-        //dikerjakan di branch feature/calculate_results
-
-        val result = "result"
+        val digitsOperators = digitsOperators()
+        if (digitsOperators.isEmpty()) return ""
+        val timesDivision = timesDivisionCalculate(digitsOperators)
+        if (timesDivision.isEmpty()) return ""
+        val result = addSubtractCalculate(timesDivision)
         return result.toString()
     }
 
